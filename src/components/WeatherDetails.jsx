@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const WeatherDetails = ({
   temp,
@@ -11,6 +11,35 @@ const WeatherDetails = ({
   sunset,
 }) => {
   const [weatherState, setWeatherState] = useState("");
+  useEffect(() => {
+    if (weatherType) {
+      switch (weatherType) {
+        case "Clouds":
+          setWeatherState("wi-day-cloudy");
+          break;
+
+        case "Haze":
+          setWeatherState("wi-fog");
+          break;
+
+        case "Clear":
+          setWeatherState("wi-day-sunny");
+          break;
+
+        case "Mist":
+          setWeatherState("wi-dust");
+          break;
+
+        case "Rain":
+          setWeatherState("wi-day-rain");
+          break;
+
+        default:
+          setWeatherState("wi-day-sunny");
+          break;
+      }
+    }
+  }, [weatherState]);
   //Converting the seconds in time
 
   let sec = sunset;

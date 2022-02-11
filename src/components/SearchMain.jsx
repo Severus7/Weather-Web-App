@@ -54,10 +54,10 @@ const SearchMain = () => {
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
+          <button className="searchButton" onClick={getWeatherInfo}>
+            Search
+          </button>
         </div>
-        <button className="searchButton" onClick={getWeatherInfo}>
-          Search
-        </button>
       </div>
       {/* Weather details here */}
       <WeatherDetails {...tempInfo} />
